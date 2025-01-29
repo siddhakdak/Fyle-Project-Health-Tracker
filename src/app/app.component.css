@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #4A90E2;
+  --primary-dark: #3a7dcb;
+  --secondary: #50E3C2;
+  --accent: #F5A623;
+  --background: #F4F7FA;
+  --text: #333333;
+  --border: #E0E0E0;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-text {
+  color: var(--text);
+}
+
+.bg-background {
+  background-color: var(--background);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-primary-dark {
+  background-color: var(--primary-dark);
+}
+
+.border-border {
+  border-color: var(--border);
+}
+
+.hover\:bg-background:hover {
+  background-color: var(--background);
+}
+
+.selected {
+  background-color: var(--accent);
+  color: white;
+}
