@@ -12,111 +12,112 @@ interface WorkoutEntry {
 
 @Component({
   selector: 'app-root',
-  styleUrls: ['./app.component.css'] ,
+  styleUrls: ['./app.component.css'],
   template: `
-    <div class="min-h-screen bg-blue-100 p-8">
-      <div class="max-w-screen-xl mx-auto bg-purple-100 rounded-lg shadow-md p-6">
-        <h1 class="text-4xl font-bold text-primary mb-8 text-center">Health Challenge Tracker App</h1>
+    <div class="min-h-screen bg-gray-100 p-8">
+      <div class="max-w-screen-xl mx-auto bg-white rounded-lg shadow-lg p-8 transform transition-all duration-500 hover:shadow-2xl">
+        <h1 class="text-5xl font-extrabold text-black mb-10 text-center animate-fade-in">
+          Health Challenge Tracker
+        </h1>
 
         <form #workoutForm="ngForm" (ngSubmit)="onSubmit(workoutForm)" class="mb-10">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label for="userName" class="block text-sm font-medium text-text mb-1">User Name*</label>
+              <label for="userName" class="block text-sm font-medium text-gray-700 mb-2">User Name*</label>
               <input type="text" id="userName" name="userName" [(ngModel)]="userName" required
-                     class="w-full px-4 py-2 border border-border rounded-lg focus:ring-primary focus:border-primary"/>
+                     class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black transition-all duration-300"/>
             </div>
             <div>
-              <label for="workoutType" class="block text-sm font-medium text-text mb-1">Workout Type*</label>
+              <label for="workoutType" class="block text-sm font-medium text-gray-700 mb-2">Workout Type*</label>
               <select id="workoutType" name="workoutType" [(ngModel)]="workoutType" required
-                      class="w-full px-4 py-2 border border-border rounded-lg focus:ring-primary focus:border-primary">
-                <option value="" disabled>Select a workout type</option>
-                <option *ngFor="let type of availableWorkoutTypes" [value]="type">{{type}}</option>
+                      class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black transition-all duration-300">
+                <option value="" disabled class="text-gray-900">Select a workout type</option>
+                <option *ngFor="let type of availableWorkoutTypes" [value]="type" class="text-gray-900">{{type}}</option>
               </select>
             </div>
             <div>
-              <label for="workoutMinutes" class="block text-sm font-medium text-text mb-1">Workout Minutes*</label>
+              <label for="workoutMinutes" class="block text-sm font-medium text-gray-700 mb-2">Workout Minutes*</label>
               <input type="number" id="workoutMinutes" name="workoutMinutes" [(ngModel)]="workoutMinutes" required
-                     class="w-full px-4 py-2 border border-border rounded-lg focus:ring-primary focus:border-primary"/>
+                     class="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black transition-all duration-300"/>
             </div>
           </div>
           <button type="submit" [disabled]="!workoutForm.form.valid"
-                  class="mt-6 w-full md:w-auto bg-primary hover:bg-primary-dark text-white font-bold py-2 px-6 rounded-lg shadow">
+                  class="mt-6 w-full md:w-auto bg-black text-white font-bold py-3 px-8 rounded-lg shadow-lg transform transition-all duration-300 hover:scale-105">
             Add Workout
           </button>
         </form>
 
         <div class="mt-10">
-          <h2 class="text-2xl font-semibold text-text mb-5">Workout Entries</h2>
-          <div class="flex flex-col md:flex-row gap-4 mb-5">
+          <h2 class="text-3xl font-bold text-black mb-6 animate-fade-in">Workout Entries</h2>
+          <div class="flex flex-col md:flex-row gap-4 mb-6">
             <input type="text" placeholder="Search by name" [(ngModel)]="searchTerm" (ngModelChange)="applyFilters()"
-                   class="px-4 py-2 border border-border rounded-lg focus:ring-primary focus:border-primary"/>
+                   class="px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black transition-all duration-300"/>
             <select [(ngModel)]="filterType" (ngModelChange)="applyFilters()"
-                    class="px-4 py-2 border border-border rounded-lg focus:ring-primary focus:border-primary">
-              <option value="">All Workout Types</option>
-              <option *ngFor="let type of availableWorkoutTypes" [value]="type">{{type}}</option>
+                    class="px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black transition-all duration-300">
+              <option value="" class="text-gray-900">All Workout Types</option>
+              <option *ngFor="let type of availableWorkoutTypes" [value]="type" class="text-gray-900">{{type}}</option>
             </select>
           </div>
-          <div class="overflow-x-auto">
-            <table class="min-w-full border border-border divide-y divide-border">
-              <thead class="bg-background">
+          <div class="overflow-x-auto rounded-lg shadow-md">
+            <table class="min-w-full border border-gray-200 divide-y divide-gray-200">
+              <thead class="bg-black">
                 <tr>
-                  <th class="px-4 py-2 text-left text-sm font-semibold text-text">Name</th>
-                  <th class="px-4 py-2 text-left text-sm font-semibold text-text">Workouts</th>
-                  <th class="px-4 py-2 text-left text-sm font-semibold text-text">Number of Workouts</th>
-                  <th class="px-4 py-2 text-left text-sm font-semibold text-text">Total Workout Minutes</th>
+                  <th class="px-6 py-4 text-left text-sm font-semibold text-white">Name</th>
+                  <th class="px-6 py-4 text-left text-sm font-semibold text-white">Workouts</th>
+                  <th class="px-6 py-4 text-left text-sm font-semibold text-white">Number of Workouts</th>
+                  <th class="px-6 py-4 text-left text-sm font-semibold text-white">Total Workout Minutes</th>
                 </tr>
               </thead>
-              <tbody class="bg-white divide-y divide-border">
-                <tr *ngFor="let entry of paginatedEntries" class="hover:bg-background">
-                  <td class="px-4 py-2">{{entry.userName}}</td>
-                  <td class="px-4 py-2">{{entry.workoutType}}</td>
-                  <td class="px-4 py-2">{{getNumberOfWorkouts(entry.userName)}}</td>
-                  <td class="px-4 py-2">{{getTotalWorkoutMinutes(entry.userName)}}</td>
+              <tbody class="bg-white divide-y divide-gray-200">
+                <tr *ngFor="let entry of paginatedEntries" class="hover:bg-gray-50 transition-all duration-200">
+                  <td class="px-6 py-4 text-gray-900">{{entry.userName}}</td>
+                  <td class="px-6 py-4 text-gray-900">{{entry.workoutType}}</td>
+                  <td class="px-6 py-4 text-gray-900">{{getNumberOfWorkouts(entry.userName)}}</td>
+                  <td class="px-6 py-4 text-gray-900">{{getTotalWorkoutMinutes(entry.userName)}}</td>
                 </tr>
               </tbody>
             </table>
           </div>
           <div class="flex justify-between items-center mt-6">
             <button (click)="changePage(-1)" [disabled]="currentPage === 1"
-                    class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">
+                    class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg transition-all duration-300 hover:scale-105">
               &lt;
             </button>
-            <span>Page {{currentPage}} of {{totalPages}}</span>
+            <span class="text-gray-700">Page {{currentPage}} of {{totalPages}}</span>
             <button (click)="changePage(1)" [disabled]="currentPage === totalPages"
-                    class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg">
+                    class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg transition-all duration-300 hover:scale-105">
               &gt;
             </button>
             <select [(ngModel)]="itemsPerPage" (ngModelChange)="applyFilters()"
-                    class="ml-2 px-4 py-2 border border-border rounded-lg focus:ring-primary focus:border-primary">
-              <option [value]="5">5 per page</option>
-              <option [value]="10">10 per page</option>
-              <option [value]="20">20 per page</option>
+                    class="ml-2 px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-black focus:border-black transition-all duration-300">
+              <option [value]="5" class="text-gray-900">5 per page</option>
+              <option [value]="10" class="text-gray-900">10 per page</option>
+              <option [value]="20" class="text-gray-900">20 per page</option>
             </select>
           </div>
         </div>
 
         <div class="mt-10 grid grid-cols-1 md:grid-cols-4 gap-8">
           <div class="md:col-span-1">
-            <h2 class="text-2xl font-semibold text-text mb-5">Users</h2>
-            <ul class="bg-white border border-border rounded-lg divide-y divide-border">
+            <h2 class="text-3xl font-bold text-black mb-6 animate-fade-in">Users</h2>
+            <ul class="bg-white border border-gray-200 rounded-lg shadow-md divide-y divide-gray-200">
               <li *ngFor="let user of getUniqueUsers()"
                   (click)="selectUser(user)"
                   [class.selected]="user === selectedUser"
-                  class="px-4 py-2 cursor-pointer hover:bg-background">
+                  class="px-6 py-4 cursor-pointer text-gray-900 hover:bg-gray-50 transition-all duration-200">
                 {{user}}
               </li>
             </ul>
           </div>
           <div class="md:col-span-3">
-            <h2 class="text-2xl font-semibold text-text mb-5">{{selectedUser}}'s Workout Progress</h2>
-            <div class="bg-white border border-border rounded-lg shadow-md p-6">
-              <canvas id="chartCanvas" class="w-full h-64"></canvas>
+            <h2 class="text-3xl font-bold text-black mb-6 animate-fade-in">{{selectedUser}}'s Workout Progress</h2>
+            <div class="bg-white border border-gray-200 rounded-lg shadow-md p-6">
+              <canvas id="chartCanvas" class="w-full h-96"></canvas>
             </div>
           </div>
         </div>
       </div>
     </div>
-  
   `
 })
 export class AppComponent implements OnInit {
