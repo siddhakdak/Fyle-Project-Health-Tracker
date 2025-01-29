@@ -118,6 +118,7 @@ interface WorkoutEntry {
         </div>
       </div>
     </div>
+    
   `
 })
 export class AppComponent implements OnInit {
