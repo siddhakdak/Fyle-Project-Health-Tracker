@@ -4,6 +4,7 @@ import { WorkoutService, WorkoutEntry } from './workout.service';
 describe('WorkoutService', () => {
   let service: WorkoutService;
 
+  
   beforeEach(() => {
     TestBed.configureTestingModule({});
     localStorage.clear(); // Clear localStorage before each test

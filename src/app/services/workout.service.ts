@@ -1,11 +1,6 @@
+// src/app/services/workout.service.ts
 import { Injectable } from '@angular/core';
-
-export interface WorkoutEntry {
-  id: string;
-  userName: string;
-  workoutType: string;
-  workoutMinutes: number;
-}
+import { WorkoutEntry } from '../models/entry.models';
 
 @Injectable({
   providedIn: 'root'
@@ -61,3 +56,5 @@ export class WorkoutService {
     return Math.random().toString(36).substr(2, 9);
   }
 }
+
+export { WorkoutEntry };

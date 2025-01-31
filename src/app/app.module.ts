@@ -1,3 +1,4 @@
+// src/app/app.module.ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
@@ -10,9 +11,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppComponent } from './app.component';
+import { WorkoutTrackerComponent } from './components/workout-tracker/workout-tracker.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    WorkoutTrackerComponent
+  ],
   imports: [
     BrowserModule,
     FormsModule,
