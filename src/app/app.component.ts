@@ -10,6 +10,7 @@ interface WorkoutEntry {
   workoutMinutes: number;
 }
 
+
 @Component({
   selector: 'app-root',
   styleUrls: ['./app.component.css'],
