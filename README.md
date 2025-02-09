@@ -15,6 +15,11 @@ This project is Build using Angular.
 
 Direct Open - https://fyle-project-health-tracker-7bkn.vercel.app/
 
+## Exalidraw Blueprint Screenshots - 
+
+<img width="620" alt="Screenshot 2025-02-09 at 1 29 13 PM" src="https://github.com/user-attachments/assets/9fe5155c-c851-48a8-8cbc-88ad8124b963" />
+
+
 
 ## Test Case Screenshots - 
 
